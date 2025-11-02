@@ -107,23 +107,22 @@ def check_dependencies():
     print("\n📦 Checking dependencies...")
     
     required = [
-        'tweepy',
-        'requests',
-        'dotenv',
-        'schedule',
-        'pycoingecko',
-        'pandas',
-        'sqlalchemy',
+        ('tweepy', 'tweepy'),
+        ('requests', 'requests'),
+        ('python-dotenv', 'dotenv'),
+        ('schedule', 'schedule'),
+        ('pycoingecko', 'pycoingecko'),
+        ('sqlalchemy', 'sqlalchemy'),
     ]
     
     missing = []
-    for package in required:
+    for package_name, import_name in required:
         try:
-            __import__(package.replace('-', '_'))
-            print(f"  ✅ {package}")
+            __import__(import_name)
+            print(f"  ✅ {package_name}")
         except ImportError:
-            print(f"  ❌ {package}")
-            missing.append(package)
+            print(f"  ❌ {package_name}")
+            missing.append(package_name)
     
     if missing:
         print(f"\n❌ Missing packages: {', '.join(missing)}")

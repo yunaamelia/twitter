@@ -2,6 +2,7 @@
 Giveaway detector and parser
 """
 import re
+import random
 from typing import Optional, Dict, List
 from config import Config
 import logging
@@ -184,7 +185,6 @@ class GiveawayParser:
             "🎊 Participating! Good luck everyone!",
         ]
         
-        import random
         return random.choice(comments)
     
     def should_participate(self, tweet_data: Dict, token_info: Dict) -> bool:

@@ -2,8 +2,7 @@
 Database models for Twitter Giveaway Bot
 """
 from sqlalchemy import create_engine, Column, Integer, String, DateTime, Boolean, Float, Text
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import declarative_base, sessionmaker
 from datetime import datetime
 import os
 from dotenv import load_dotenv
