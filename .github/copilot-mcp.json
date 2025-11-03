@@ -7,15 +7,8 @@
         "@modelcontextprotocol/server-sqlite",
         "${workspaceFolder}/giveaways.db"
       ],
-      "disabled": false
-    },
-    "github": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-github"],
-      "env": {
-        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
-      },
-      "disabled": true
+      "disabled": false,
+      "alwaysAllow": ["read_query", "list_tables", "describe_table"]
     },
     "filesystem": {
       "command": "npx",
@@ -24,17 +17,53 @@
         "@modelcontextprotocol/server-filesystem",
         "${workspaceFolder}"
       ],
-      "disabled": true
+      "disabled": false,
+      "alwaysAllow": ["read_file", "list_directory", "search_files"]
     },
-    "context7": {
+    "github": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"],
-      "disabled": true
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
+      },
+      "disabled": false,
+      "alwaysAllow": [
+        "get_file_contents",
+        "search_repositories",
+        "create_or_update_file",
+        "push_files",
+        "create_issue",
+        "create_pull_request"
+      ]
     },
-    "browser": {
+    "python": {
       "command": "npx",
-      "args": ["-y", "@microsoft/mcp-server-playwright"],
-      "disabled": true
+      "args": ["-y", "@modelcontextprotocol/server-python"],
+      "disabled": false,
+      "alwaysAllow": ["execute_code", "list_packages", "get_package_info"]
+    },
+    "git": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-git",
+        "--repository",
+        "${workspaceFolder}"
+      ],
+      "disabled": false,
+      "alwaysAllow": ["git_status", "git_diff", "git_log", "git_commit"]
+    },
+    "memory": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-memory"],
+      "disabled": false,
+      "alwaysAllow": ["store_memory", "retrieve_memory", "search_memory"]
+    },
+    "fetch": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-fetch"],
+      "disabled": false,
+      "alwaysAllow": ["fetch"]
     }
   }
 }
