@@ -1,0 +1,146 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run Bot",
+      "type": "shell",
+      "command": "python main.py",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "Setup Verify",
+      "type": "shell",
+      "command": "python setup_verify.py",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "Show Statistics",
+      "type": "shell",
+      "command": "python stats.py",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "Install Requirements",
+      "type": "shell",
+      "command": "pip install -r requirements.txt",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "Install Dev Requirements",
+      "type": "shell",
+      "command": "pip install -r requirements-dev.txt",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "Create Virtual Environment",
+      "type": "shell",
+      "command": "python -m venv venv && source venv/bin/activate && pip install --upgrade pip",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "Format Code (Black)",
+      "type": "shell",
+      "command": "black --line-length 100 *.py",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "silent"
+      }
+    },
+    {
+      "label": "Sort Imports (isort)",
+      "type": "shell",
+      "command": "isort *.py",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "silent"
+      }
+    },
+    {
+      "label": "Lint Code (Pylint)",
+      "type": "shell",
+      "command": "pylint *.py",
+      "problemMatcher": ["$pylint"],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "Lint Code (Flake8)",
+      "type": "shell",
+      "command": "flake8 *.py --max-line-length=100",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "Run Tests",
+      "type": "shell",
+      "command": "pytest -v",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "View Bot Logs",
+      "type": "shell",
+      "command": "tail -f bot.log",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Open SQLite Database",
+      "type": "shell",
+      "command": "sqlite3 giveaways.db",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "Clean Python Cache",
+      "type": "shell",
+      "command": "find . -type d -name '__pycache__' -exec rm -rf {} + 2>/dev/null; find . -type f -name '*.pyc' -delete",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "silent"
+      }
+    },
+    {
+      "label": "Full Code Quality Check",
+      "dependsOn": [
+        "Format Code (Black)",
+        "Sort Imports (isort)",
+        "Lint Code (Pylint)"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}

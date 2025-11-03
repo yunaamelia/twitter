@@ -38,7 +38,7 @@ ENV/
 logs/
 
 # IDE
-.vscode/
+# .vscode/ - UNCOMMENTED to include VS Code config in repo
 .idea/
 *.swp
 *.swo

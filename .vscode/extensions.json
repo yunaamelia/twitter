@@ -1,0 +1,71 @@
+{
+  "recommendations": [
+    // Python Development - ESSENTIAL
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "ms-python.black-formatter",
+    "ms-python.isort",
+    "ms-python.flake8",
+    "ms-python.pylint",
+
+    // GitHub Integration - ESSENTIAL
+    "github.copilot",
+    "github.copilot-chat",
+    "github.vscode-pull-request-github",
+    "github.vscode-github-actions",
+
+    // Git Tools - USEFUL
+    "eamodio.gitlens",
+    "donjayamanne.githistory",
+
+    // Code Quality - USEFUL
+    "editorconfig.editorconfig",
+    "usernamehw.errorlens",
+    "streetsidesoftware.code-spell-checker",
+
+    // Database - PROJECT SPECIFIC
+    "alexcvzz.vscode-sqlite",
+    "mtxr.sqltools",
+    "mtxr.sqltools-driver-sqlite",
+
+    // Utilities - USEFUL
+    "mikestead.dotenv",
+    "redhat.vscode-yaml",
+    "yzhang.markdown-all-in-one",
+    "ms-vscode.makefile-tools",
+
+    // Icons (choose one)
+    "pkief.material-icon-theme"
+  ],
+  "unwantedRecommendations": [
+    // Not needed for Python bot project
+    "aaron-bond.better-comments",
+    "bierner.markdown-mermaid",
+    "christian-kohler.npm-intellisense",
+    "formulahendry.code-runner",
+    "gruntfuggly.todo-tree",
+    "humao.rest-client",
+    "rangav.vscode-thunder-client",
+    "miguelsolorio.fluent-icons",
+    "oderwat.indent-rainbow",
+    "shardulm94.trailing-spaces",
+    "wayou.vscode-todo-highlight",
+    "davidanson.vscode-markdownlint",
+    "2gua.rainbow-brackets",
+
+    // Remote/Cloud extensions not needed
+    "ms-vscode.azure-repos",
+    "ms-vscode.remote-explorer",
+    "ms-vscode.remote-repositories",
+    "ms-vscode.remote-server",
+    "github.remotehub",
+    "mijur.copilot-terminal-tools",
+
+    // Web development extensions
+    "ms-vscode.live-server",
+    "ritwickdey.liveserver",
+    "formulahendry.auto-close-tag",
+    "formulahendry.auto-rename-tag",
+    "esbenp.prettier-vscode"
+  ]
+}

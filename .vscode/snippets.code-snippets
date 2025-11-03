@@ -1,0 +1,112 @@
+{
+  "Twitter API Client": {
+    "prefix": "tw-client",
+    "body": [
+      "client = tweepy.Client(",
+      "    bearer_token=Config.TWITTER_BEARER_TOKEN,",
+      "    consumer_key=creds['api_key'],",
+      "    consumer_secret=creds['api_secret'],",
+      "    access_token=creds['access_token'],",
+      "    access_token_secret=creds['access_secret'],",
+      "    wait_on_rate_limit=True",
+      ")"
+    ],
+    "description": "Create Tweepy client with full auth"
+  },
+  "Database Session": {
+    "prefix": "db-session",
+    "body": [
+      "db = SessionLocal()",
+      "try:",
+      "    $1",
+      "    db.commit()",
+      "finally:",
+      "    db.close()"
+    ],
+    "description": "Database session with context management"
+  },
+  "Logger Setup": {
+    "prefix": "log-setup",
+    "body": [
+      "import logging",
+      "",
+      "logger = logging.getLogger(__name__)"
+    ],
+    "description": "Setup module logger"
+  },
+  "Try-Except with Logging": {
+    "prefix": "try-log",
+    "body": [
+      "try:",
+      "    $1",
+      "except Exception as e:",
+      "    logger.error(f\"${2:Error description}: {e}\")",
+      "    ${3:return False}"
+    ],
+    "description": "Try-except block with error logging"
+  },
+  "Twitter Search Query": {
+    "prefix": "tw-search",
+    "body": [
+      "tweets = self.search_client.search_recent_tweets(",
+      "    query=\"${1:query} -is:retweet lang:en\",",
+      "    max_results=100,",
+      "    start_time=start_time.isoformat() + 'Z',",
+      "    tweet_fields=['created_at', 'author_id', 'public_metrics', 'text'],",
+      "    user_fields=['username', 'public_metrics'],",
+      "    expansions=['author_id']",
+      ")"
+    ],
+    "description": "Twitter search query with standard fields"
+  },
+  "Rate Limit Delay": {
+    "prefix": "rate-limit",
+    "body": [
+      "time.sleep(${1:2})  # Rate limiting"
+    ],
+    "description": "Add rate limiting delay"
+  },
+  "Config Get Account": {
+    "prefix": "cfg-account",
+    "body": [
+      "creds = Config.get_account_credentials(${1:account_number})"
+    ],
+    "description": "Get account credentials from config"
+  },
+  "Parse Giveaway Rules": {
+    "prefix": "parse-rules",
+    "body": [
+      "rules = {",
+      "    'follow': False,",
+      "    'retweet': False,",
+      "    'like': False,",
+      "    'comment': False",
+      "}"
+    ],
+    "description": "Initialize giveaway rules dictionary"
+  },
+  "CoinGecko Price Check": {
+    "prefix": "cg-price",
+    "body": [
+      "price = self.price_checker.get_token_price('${1:BTC}')",
+      "if price:",
+      "    logger.info(f\"Token price: ${price}\")"
+    ],
+    "description": "Check token price with CoinGecko"
+  },
+  "Function Docstring": {
+    "prefix": "doc-func",
+    "body": [
+      "\"\"\"",
+      "${1:Brief description}",
+      "",
+      "Args:",
+      "    ${2:param}: ${3:Description}",
+      "",
+      "Returns:",
+      "    ${4:Description}",
+      "\"\"\""
+    ],
+    "description": "Python function docstring template"
+  }
+}
