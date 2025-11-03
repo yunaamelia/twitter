@@ -1,0 +1,42 @@
+{
+  "servers": {
+    "github/github-mcp-server": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "gallery": "https://api.mcp.github.com",
+      "version": "0.13.0",
+      "description": "GitHub integration for repository management, PRs, and issues"
+    },
+    "upstash/context7": {
+      "type": "http",
+      "url": "https://mcp.context7.com/mcp",
+      "headers": {
+        "CONTEXT7_API_KEY": "${input:context7_api_key}"
+      },
+      "gallery": "https://api.mcp.github.com",
+      "version": "1.0.0",
+      "description": "Context7 for up-to-date library documentation (Tweepy, SQLAlchemy, etc)"
+    },
+    "gitkraken/gitkraken-mcp-server": {
+      "type": "http",
+      "url": "https://api.mcp.gitkraken.com/mcp/v1",
+      "gallery": "https://api.mcp.github.com",
+      "version": "1.0.0",
+      "description": "GitKraken for advanced Git operations"
+    }
+  },
+  "inputs": [
+    {
+      "id": "context7_api_key",
+      "type": "promptString",
+      "description": "Context7 API key (optional; increases rate limits). Get one at https://context7.com/dashboard",
+      "password": true
+    }
+  ],
+  "removed": {
+    "microsoft/playwright-mcp": {
+      "reason": "Not needed - Twitter bot doesn't require browser automation",
+      "removed_at": "2025-11-03"
+    }
+  }
+}
