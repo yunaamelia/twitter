@@ -1,0 +1,25 @@
+{
+  "folders": [
+    {
+      "path": ".",
+      "name": "Twitter Giveaway Bot"
+    }
+  ],
+  "settings": {
+    "files.associations": {
+      "*.env*": "dotenv",
+      ".pylintrc": "ini",
+      ".flake8": "ini"
+    },
+    "python.terminal.activateEnvInCurrentTerminal": true
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-python.python",
+      "ms-python.vscode-pylance",
+      "ms-python.black-formatter",
+      "github.copilot",
+      "github.copilot-chat"
+    ]
+  }
+}
